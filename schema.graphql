@@ -1,0 +1,24 @@
+type Query {
+  users: [User!]!
+  tasksByUser(userId: ID!): [Task!]!
+}
+
+type Mutation {
+  createUser(email: String!, name: String): User
+  createTask(title: String!, userId: ID!): Task
+  toggleTask(id: ID!, isCompleted: Boolean!): Task
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String
+  tasks: [Task!]!
+}
+
+type Task {
+  id: ID!
+  title: String!
+  isCompleted: Boolean!
+  author: User
+}

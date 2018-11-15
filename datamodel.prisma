@@ -1,0 +1,13 @@
+type User {
+  id: ID! @unique
+  email: String @unique
+  name: String!
+  tasks: [Task!]!
+}
+
+type Task {
+  id: ID! @unique
+  title: String!
+  isCompleted: Boolean! @default(value: "false")
+  author: User
+}
